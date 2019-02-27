@@ -20,10 +20,10 @@ namespace RCBelmont.SHLightGenerator
         public Vector4 SHC;
 
         /// <summary>
-        /// 构造函数
-        /// </summary>F
+        /// 初始化函数
+        /// </summary>
         /// <param name="shRaw">原始数据</param>
-        public SHData(SphericalHarmonicsL2 shRaw)
+        public void Init(SphericalHarmonicsL2 shRaw)
         {
             SHAr = new Vector4(shRaw[0, 3], shRaw[0, 1], shRaw[0, 2], shRaw[0, 0]);
             SHAg = new Vector4(shRaw[1, 3], shRaw[1, 1], shRaw[1, 2], shRaw[1, 0]);
@@ -33,7 +33,7 @@ namespace RCBelmont.SHLightGenerator
             SHBb = new Vector4(shRaw[2, 4], shRaw[2, 5], shRaw[2, 6] * 3, shRaw[2, 7]);
             SHC = new Vector4(shRaw[0, 8], shRaw[1, 8], shRaw[2, 8], 1);
         }
-
+        
         /// <summary>
         /// 打印SH数据
         /// </summary>

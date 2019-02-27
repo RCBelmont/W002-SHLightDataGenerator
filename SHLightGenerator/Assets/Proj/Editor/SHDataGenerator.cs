@@ -8,13 +8,17 @@ using UnityEngine;
 public class SHDataGenerator : EditorWindow
 {
     private Cubemap _map;
+    private Color _skyColor, _equatorColor, _groundColor;
+    private SHData _shData;
+
     private enum AmbientType
     {
         SkyBox,
-        Trilight
+        TriLight
     }
 
     private AmbientType _aType = AmbientType.SkyBox;
+
     [MenuItem("Toos/SHLightDataGenerator")]
     public static void OpenWindow()
     {
@@ -25,19 +29,59 @@ public class SHDataGenerator : EditorWindow
         win.Show();
     }
 
-    
+
     void OnGUI()
     {
-        _aType = (AmbientType)EditorGUILayout.EnumPopup("AmbientType", _aType);
+        _aType = (AmbientType) EditorGUILayout.EnumPopup("AmbientType", _aType);
         switch (_aType)
         {
-            
+            case AmbientType.SkyBox:
+                _map = (Cubemap) EditorGUILayout.ObjectField("EnvTex: ", _map, typeof(Cubemap), false);
+                if (GUILayout.Button("Generate!"))
+                {
+                    _shData = SHLightGeneratorLib.GenSHBySkyBox(_map, 0);
+                }
+
+                break;
+            case AmbientType.TriLight:
+                _skyColor = EditorGUILayout.ColorField("Sky", _skyColor);
+                _equatorColor = EditorGUILayout.ColorField("Equator", _equatorColor);
+                _groundColor = EditorGUILayout.ColorField("Ground", _groundColor);
+                if (GUILayout.Button("Generate!"))
+                {
+                    _shData = SHLightGeneratorLib.GenSHByTriLight(_skyColor, _equatorColor, _groundColor);
+                }
+
+                break;
         }
-        
-        _map = (Cubemap) EditorGUILayout.ObjectField("EnvTex: ", _map, typeof(Cubemap), false);
-        if (GUILayout.Button("Generate!"))
+
+        EditorGUILayout.Space();
+        if (_shData)
         {
-            SHLightGeneratorLib.GenSHBySkyBox(_map, 0);
+            GUILayout.Label("SHAr: " + _shData.SHAr);
+            GUILayout.Label("SHAg: " + _shData.SHAg);
+            GUILayout.Label("SHAb: " + _shData.SHAb);
+            GUILayout.Label("SHBr: " + _shData.SHAr);
+            GUILayout.Label("SHBg: " + _shData.SHAg);
+            GUILayout.Label("SHBb: " + _shData.SHAb);
+            GUILayout.Label("SHC: " + _shData.SHC);
+            if (GUILayout.Button("SaveSHData"))
+            {
+                string path = EditorUtility.SaveFilePanel("SaveSHData", Application.dataPath, "SHData", "asset");
+                if (!string.IsNullOrEmpty(path))
+                {
+                    if (!path.Contains(Application.dataPath))
+                    {
+                        Debug.LogError("Invalid Path");
+                        return;
+                    }
+
+                    path = "Assets" + path.Replace(Application.dataPath, "");
+                    AssetDatabase.CreateAsset(_shData, path);
+                    Selection.activeObject = _shData;
+                }
+               
+            }
         }
     }
 }
