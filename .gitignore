@@ -5,3 +5,6 @@
 /SHLightGenerator/obj
 /SHLightGenerator/*.sln
 /SHLightGenerator/*.csproj
+/SHLightGenerator/Assets/Plugins/Editor/JetBrains
+/SHLightGenerator/Assets/Plugins/Editor/JetBrains.meta
+/SHLightGenerator/.idea
