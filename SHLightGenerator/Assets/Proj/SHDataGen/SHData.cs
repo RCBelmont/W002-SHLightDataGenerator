@@ -1,8 +1,8 @@
-﻿/////////////////////////////////////
-//Created By RCBelmont  On 2019/2/17 14:02:43
-//
-//Description:SH数据类
-///////////////////////////////////
+﻿//============================
+//Created By RCBelmont on 2019年2月27日
+//Description SH数据类
+//============================
+
 
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -11,6 +11,7 @@ namespace RCBelmont.SHLightGenerator
 {
     public class SHData:ScriptableObject
     {
+       
         public Vector4 SHAr;
         public Vector4 SHAg;
         public Vector4 SHAb;

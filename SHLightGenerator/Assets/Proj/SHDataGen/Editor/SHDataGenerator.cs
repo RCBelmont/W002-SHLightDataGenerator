@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using RCBelmont.SHLightGenerator;
+﻿//============================
+//Created By RCBelmont on 2019年3月1日
+//Description SH数据生成器面板
+//============================
 using UnityEditor;
 using UnityEngine;
-
-public class SHDataGenerator : EditorWindow
+namespace RCBelmont.SHLightGenerator
+{
+   public class SHDataGenerator : EditorWindow
 {
     private Cubemap _map;
     private Color _skyColor, _equatorColor, _groundColor;
     private SHData _shData;
+    private Material _mat;
 
     private enum AmbientType
     {
@@ -19,7 +21,7 @@ public class SHDataGenerator : EditorWindow
 
     private AmbientType _aType = AmbientType.SkyBox;
 
-    [MenuItem("Toos/SHLightDataGenerator")]
+    [MenuItem("Tools/SHLightDataGenerator")]
     public static void OpenWindow()
     {
         EditorWindow win = GetWindow<SHDataGenerator>();
@@ -84,4 +86,6 @@ public class SHDataGenerator : EditorWindow
             }
         }
     }
+} 
+
 }
