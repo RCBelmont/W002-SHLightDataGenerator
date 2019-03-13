@@ -32,7 +32,7 @@ namespace RCBelmont.SHLightGenerator
         /// <param name="cubeTex"></param>
         /// <param name="rotate"></param>
         /// <returns></returns>
-        public static SHData GenSHBySkyBox(Cubemap cubeTex, float rotate)
+        public static SHData GenSHBySkyBox(Texture cubeTex, float rotate)
         {
             AmbientMode oMode = RenderSettings.ambientMode;
             RenderSettings.ambientMode = AmbientMode.Skybox;

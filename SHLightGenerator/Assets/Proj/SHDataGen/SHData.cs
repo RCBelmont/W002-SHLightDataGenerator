@@ -26,7 +26,7 @@ namespace RCBelmont.SHLightGenerator
         /// <param name="shRaw">原始数据</param>
         public void Init(SphericalHarmonicsL2 shRaw)
         {
-            SHAr = new Vector4(shRaw[0, 3], shRaw[0, 1], shRaw[0, 2], shRaw[0, 0]);
+            SHAr = new Vector4(shRaw[0, 3], shRaw[0, 1], shRaw[0, 2], shRaw[0, 0] );
             SHAg = new Vector4(shRaw[1, 3], shRaw[1, 1], shRaw[1, 2], shRaw[1, 0]);
             SHAb = new Vector4(shRaw[2, 3], shRaw[2, 1], shRaw[2, 2], shRaw[2, 0]);
             SHBr = new Vector4(shRaw[0, 4], shRaw[0, 5], shRaw[0, 6] * 3, shRaw[0, 7]);

@@ -68,9 +68,9 @@ namespace RCBelmont.SHLightGenerator
                 GUILayout.Label("SHAr: " + _shData.SHAr);
                 GUILayout.Label("SHAg: " + _shData.SHAg);
                 GUILayout.Label("SHAb: " + _shData.SHAb);
-                GUILayout.Label("SHBr: " + _shData.SHAr);
-                GUILayout.Label("SHBg: " + _shData.SHAg);
-                GUILayout.Label("SHBb: " + _shData.SHAb);
+                GUILayout.Label("SHBr: " + _shData.SHBr);
+                GUILayout.Label("SHBg: " + _shData.SHBg);
+                GUILayout.Label("SHBb: " + _shData.SHBb);
                 GUILayout.Label("SHC: " + _shData.SHC);
                 if (GUILayout.Button("SaveSHData"))
                 {
