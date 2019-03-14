@@ -70,7 +70,7 @@
                 l1.r = dot(my_SHAr, vA);
                 l1.g = dot(my_SHAg, vA);
                 l1.b = dot(my_SHAb, vA);
-                l1.b = my_SHAb.r * vA.x;
+                //l1.b = my_SHAb.r * vA.x;
                 float3 l2 = (float3)0;
                 half4 vB = normal.xyzz * normal.yzzx;
                 l2.r = dot(my_SHBr, vB);
@@ -88,7 +88,7 @@
                 #endif
                 
                 
-                return float4(0,0,res.b, 1);
+                //return float4(0,0,res.b, 1);
                 return float4(res, 1);
             }
             ENDCG

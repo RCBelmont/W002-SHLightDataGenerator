@@ -110,14 +110,14 @@ public class TestGen : EditorWindow
                     float phi = 2 * Mathf.PI * (j * 1.0f / w);
                     float dv = sin(theta) * dtheta * dphi;
                     float x = sin(theta) * cos(phi);
-                    float y = cos(theta);
-                    float z = sin(theta) * sin(phi);
-                    
+                    float z = cos(theta);
+                    float y = sin(theta) * sin(phi);
+
                     //c *= 0.5f;
                     //c = G2L(c);
                     a[0, 0] += c.r * (coefficientL[0] * coefficientL[0]) * dv; //0 0
 
-                    a[0, 1] += 1 * y * dv; //1 -1
+                    a[0, 1] += c.r * coefficientL[1] * coefficientL[1] * y * dv; //1 -1
                     a[0, 2] += c.r * coefficientL[2] * coefficientL[2] * z * dv; //1 0
                     a[0, 3] += c.r * coefficientL[3] * coefficientL[3] * x * dv; //1 1
 
@@ -147,7 +147,7 @@ public class TestGen : EditorWindow
 
                     a[2, 4] += c.b * coefficientL[4] * coefficientL[4] * y * x * dv; //2 -2
                     a[2, 5] += c.b * coefficientL[5] * coefficientL[5] * y * z * dv; //2 -1
-                    a[2, 6] += c.b * coefficientL[6] * coefficientL[6] * (z * z ) * dv; //2 0
+                    a[2, 6] += c.b * coefficientL[6] * coefficientL[6] * (z * z) * dv; //2 0
                     a[2, 7] += c.b * coefficientL[7] * coefficientL[7] * x * z * dv; //2 1
                     a[2, 8] += c.b * coefficientL[8] * coefficientL[8] * (x * x - y * y) * dv; //2 2
                 }
@@ -165,7 +165,7 @@ public class TestGen : EditorWindow
             {
                 _mat.SetVector("my_SHAr", new Vector4(a[0, 3], a[0, 1], a[0, 2], a[0, 0]));
                 _mat.SetVector("my_SHAg", new Vector4(a[1, 3], a[1, 1], a[1, 2], a[1, 0] ));
-                _mat.SetVector("my_SHAb", new Vector4(a[2, 3], a[2, 1], a[2, 2], a[2, 0] ));
+                _mat.SetVector("my_SHAb", new Vector4(a[2, 3], a[2, 1], a[2, 2], a[2, 0]));
                 _mat.SetVector("my_SHBr", new Vector4(a[0, 4], a[0, 5], a[0, 6] * 3, a[0, 7]));
                 _mat.SetVector("my_SHBg", new Vector4(a[1, 4], a[1, 5], a[1, 6] * 3, a[1, 7]));
                 _mat.SetVector("my_SHBb", new Vector4(a[2, 4], a[2, 5], a[2, 6] * 3, a[2, 7]));
@@ -177,7 +177,7 @@ public class TestGen : EditorWindow
     private Texture2D GetProjText(Cubemap cube)
     {
         Material m = new Material(Shader.Find("Hidden/CubeMapProject"));
-        RenderTexture rt = RenderTexture.GetTemporary(512, 1024, 0, RenderTextureFormat.DefaultHDR);
+        RenderTexture rt = RenderTexture.GetTemporary(1024, 512, 0, RenderTextureFormat.DefaultHDR);
         Graphics.Blit(cube, rt, m);
         rt.hideFlags = HideFlags.HideAndDontSave;
         rt.name = "bbbbbb";
