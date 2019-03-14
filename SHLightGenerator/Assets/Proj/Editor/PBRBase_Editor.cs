@@ -134,6 +134,21 @@ internal class PBRBase_Editor : ShaderGUI
         //Property18: _FresnelColor
         MaterialProperty _FresnelColor = FindProperty("_FresnelColor", props);
         materialEditor.ColorProperty(_FresnelColor, "菲涅尔颜色");
+        
+        MaterialProperty my_SHAr = FindProperty("my_SHAr", props);
+        materialEditor.VectorProperty(my_SHAr, "my_SHAr");
+        MaterialProperty my_SHAg = FindProperty("my_SHAg", props);
+        materialEditor.VectorProperty(my_SHAg, "my_SHAg");
+        MaterialProperty my_SHAb = FindProperty("my_SHAb", props);
+        materialEditor.VectorProperty(my_SHAb, "my_SHAb");
+        MaterialProperty my_SHBr = FindProperty("my_SHBr", props);
+        materialEditor.VectorProperty(my_SHBr, "my_SHBr");
+        MaterialProperty my_SHBg = FindProperty("my_SHBg", props);
+        materialEditor.VectorProperty(my_SHBg, "my_SHBg");
+        MaterialProperty my_SHBb = FindProperty("my_SHBb", props);
+        materialEditor.VectorProperty(my_SHBb, "my_SHBb");
+        MaterialProperty my_SHC = FindProperty("my_SHC", props);
+        materialEditor.VectorProperty(my_SHC, "my_SHC");
     }
 
     private void UpdateSHData(MaterialProperty[] props, Material m)

@@ -41,9 +41,10 @@
                 v2f o;
                 
                 o.uv = v.uv;
-                
+                v.uv.x = 1-v.uv.x;
+                v.uv.y = 1-v.uv.y;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.vertexLocal = half3(v.uv.x * 2 - 1, v.uv.y * 2 - 1, 1);
+                o.vertexLocal = half3(v.uv.x * 2 -1 + 3.14 /2 , v.uv.y * 2 - 1, 1);
                 
                 return o;
             }
@@ -56,9 +57,10 @@
                 //return (half4)vertexLocal.z;
                 // half3 c = DecodeHDR(col, _MainTex_HDR);
                 //c = c * unity_ColorSpaceDouble.rgb * _ColorTint;
-                half3 c = DecodeHDR(col, _MainTex_HDR);
+               half3 c = DecodeHDR(col, _MainTex_HDR);
                 //return half4(0,1,1,1) ;
-                return half4(col.rgb, 1);
+                //c= GammaToLinearSpace(c);
+                return half4(max(c,0), 1);
             }
            
             ENDCG

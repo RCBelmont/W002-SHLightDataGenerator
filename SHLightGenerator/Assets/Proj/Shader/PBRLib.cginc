@@ -20,7 +20,7 @@ half3 MY_SHEvalLinearL0L1(half4 normal)
         x.r = dot(my_SHAr, normal);
         x.g = dot(my_SHAg, normal);
         x.b = dot(my_SHAb, normal);
-        
+        //x.r = my_SHAr.w; 
         return x;
     }
     
@@ -47,12 +47,12 @@ half3 MY_SHEvalLinearL0L1(half4 normal)
         half3 res = MY_SHEvalLinearL0L1(normal);
         
         // Quadratic polynomials
-       // res += MY_SHEvalLinearL2(normal);
+        res += MY_SHEvalLinearL2(normal);
         
         #ifdef UNITY_COLORSPACE_GAMMA
             res = LinearToGammaSpace(res);
         #endif
-        
+        //return half3(res.r,0,0);
         return res;
     }
 

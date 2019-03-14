@@ -60,7 +60,7 @@
                 return o;
             }
             
-            fixed4 frag(v2f i): SV_Target
+            float4 frag(v2f i): SV_Target
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
@@ -70,7 +70,7 @@
                 l1.r = dot(my_SHAr, vA);
                 l1.g = dot(my_SHAg, vA);
                 l1.b = dot(my_SHAb, vA);
-                
+                l1.b = my_SHAb.r * vA.x;
                 float3 l2 = (float3)0;
                 half4 vB = normal.xyzz * normal.yzzx;
                 l2.r = dot(my_SHBr, vB);
@@ -81,11 +81,14 @@
                 half vC = normal.x * normal.x - normal.y * normal.y;
                 l3 = my_SHC.rgb * vC;
                 
-                float3 res = l1 + l2 + l3;
+                float3 res = l1;//+ l2 + l3;
+
                 #ifdef UNITY_COLORSPACE_GAMMA
                     //res = LinearToGammaSpace(res);
                 #endif
                 
+                
+                return float4(0,0,res.b, 1);
                 return float4(res, 1);
             }
             ENDCG
