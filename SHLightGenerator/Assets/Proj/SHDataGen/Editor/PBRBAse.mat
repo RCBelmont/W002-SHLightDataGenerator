@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PBRBAse
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 468783521392faa4fac3235f162cb413, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -39,11 +39,23 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EmissionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FuncTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -55,23 +67,47 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SkyBox:
+        m_Texture: {fileID: 8900000, guid: 53a74efbf35ce1e41a6e0cfc16cb5bc8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AO: 1
+    - _AmbientStr: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _EmissionStr: 0
+    - _EnvRotate: 0
+    - _FresnelStr: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
+    - _MetallicStr: 0.5
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _ReflectStrength: 1
+    - _SmoothStr: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - _AmbientEquator: {r: 0, g: 0, b: 0, a: 0}
+    - _AmbientGround: {r: 0, g: 0, b: 0, a: 0}
+    - _AmbientSky: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.6431373, g: 0.49411768, b: 0.34509805, a: 1}
+    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - my_SHAb: {r: -0.07372994, g: 0.027504696, b: -0.017360687, a: 0.12929037}
+    - my_SHAg: {r: 0.036021184, g: 0.05331824, b: -0.01124954, a: 0.14526808}
+    - my_SHAr: {r: 0.11431413, g: 0.083601244, b: -0.00225484, a: 0.22907305}
+    - my_SHBb: {r: 0.012049942, g: 0.0005171872, b: -0.04002979, a: -0.00054584816}
+    - my_SHBg: {r: 0.010056265, g: 0.003161408, b: -0.0035447767, a: 0.000030903146}
+    - my_SHBr: {r: 0.012932921, g: 0.009516677, b: 0.017253986, a: 0.005469391}
+    - my_SHC: {r: 0.04193879, g: 0.041586358, b: 0.062084477, a: 1}

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New Material 2
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 04eec9878f039cf48bee7a82cfa346f9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -75,3 +75,10 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - my_SHAb: {r: -0.08131364, g: 0.027433425, b: -0.017358115, a: 0.13329229}
+    - my_SHAg: {r: 0.037401956, g: 0.054078083, b: -0.011726571, a: 0.14711934}
+    - my_SHAr: {r: 0.122965746, g: 0.08416068, b: -0.0023677722, a: 0.23473495}
+    - my_SHBb: {r: 0.012234098, g: 0.0005407782, b: -0.04351349, a: -0.0009771858}
+    - my_SHBg: {r: 0.009536095, g: 0.0029798371, b: -0.0034646757, a: -0.00078096724}
+    - my_SHBr: {r: 0.012854122, g: 0.009070692, b: 0.017753238, a: 0.006336724}
+    - my_SHC: {r: 0.04455175, g: 0.042465363, b: 0.0655078, a: 1}

@@ -61,7 +61,8 @@
                 half3 c = DecodeHDR(col, _MainTex_HDR);
                 //return half4(0,1,1,1) ;
                 //return half4(i.vertexLocal,1);
-                return half4(col.rgb, 1);
+                c = GammaToLinearSpace(c);
+                return half4(c.rgb, 1);
             }
            
             ENDCG

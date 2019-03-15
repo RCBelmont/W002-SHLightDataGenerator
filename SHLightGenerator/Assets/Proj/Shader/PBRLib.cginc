@@ -52,7 +52,7 @@ half3 MY_SHEvalLinearL0L1(half4 normal)
         #ifdef UNITY_COLORSPACE_GAMMA
             res = LinearToGammaSpace(res);
         #endif
-        //return half3(res.r,0,0);
+        //return half3(0,res.g,0);
         return res;
     }
 

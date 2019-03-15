@@ -107,7 +107,7 @@
         half3 indirectSpecular = surfaceReduction * gi.indirect.specular * (FresnelLerp(specColor, grazingTerm * _FresnelStr * _FresnelColor, ndv)) + emissionCol;
         half3 color = directDiffuse + indirectDiffuse ;// indirectSpecular + directSpecular;
         //return half4(i.viewDir, 1); 
-        return half4(gi.indirect.diffuse, 1); 
+        return half4(MY_ShadeSH9(half4(i.normal, 1)), 1); 
     }
     
     

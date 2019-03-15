@@ -81,14 +81,15 @@
                 half vC = normal.x * normal.x - normal.y * normal.y;
                 l3 = my_SHC.rgb * vC;
                 
-                float3 res = l1;//+ l2 + l3;
+                //float3 res = l1 ;//+ l2 + l3;
+                float3 res = l1 + l2 + l3;
 
                 #ifdef UNITY_COLORSPACE_GAMMA
-                    //res = LinearToGammaSpace(res);
+                    res = LinearToGammaSpace(res);
                 #endif
                 
                 
-                //return float4(0,0,res.b, 1);
+                //return float4(0,res.g,0, 1);
                 return float4(res, 1);
             }
             ENDCG
